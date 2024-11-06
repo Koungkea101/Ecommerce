@@ -2,10 +2,10 @@
 
 <template>
     <div class="promoCard" :style="{backgroundColor: bgcolor}">
-        <img :src="image" alt="" class="img" :style="{width: width, height: height,top: top,left: left}">
+        <img :src="image" alt="" class="img">
         <div class="textContainer">
             <h1 class="title">{{ title }}</h1>
-            <ButtonComp :bgcolor="bgcolorBtn" class="btn"></ButtonComp>
+            <ButtonComp :bgcolor="bgcolorBtn" class="btn" @:click="shopNow(promotion)"></ButtonComp>
         </div>
     </div>
 </template>
@@ -19,13 +19,15 @@ export default{
         "image",
         "bgcolor",
         "bgcolorBtn",
-        "width",
-        "height",
-        "top",
-        "left"
+        "promotion"
     ],
     components:{
         ButtonComp,
+    },
+    methods:{
+        shopNow(promotion) {
+             alert("Let's shop: "+promotion);
+        }
     }
 };
 </script>
@@ -45,7 +47,10 @@ export default{
     left: 48px;
 }
 .img{
-    
+    width: 204 px;
+    height: 252 px;
+    top: 48px;
+    left:310px;
     position: absolute;
     
 }
