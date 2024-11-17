@@ -11,6 +11,8 @@
 </template>
 <script>
 import ButtonComp from './buttonComp.vue';
+import axios from 'axios';
+
 
 export default{
     name:"promotion",

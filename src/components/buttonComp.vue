@@ -7,7 +7,7 @@
 </template>
 <script>
 export default{
-    name:"button",
+    name:"appButton",
     props:[
         "bgcolor"
         
