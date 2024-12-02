@@ -52,5 +52,13 @@ export const useProductStore = defineStore('product', {
         console.error("Error fetching categories:", error);
       }
     },
+    async fetchPromotions() {
+      try {
+        const response = await axios.get("http://localhost:3000/api/promotions");
+        this.promotions = response.data;
+      } catch (error) {
+        console.error("Error fetching promotions:", error);
+      }
+    },
   },
 });

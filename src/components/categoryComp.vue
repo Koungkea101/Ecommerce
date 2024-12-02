@@ -3,7 +3,7 @@
         <img :src="image" alt="" class="img">
         <div class="textContainer">
             <h1 class="title">{{ title }}</h1>
-            <p class="nItem">{{ numItem }}</p>
+            <p class="nItem">{{ numItem }} items</p>
         </div>
         
     </div>
