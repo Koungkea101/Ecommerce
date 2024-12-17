@@ -1,5 +1,5 @@
 <template>
-    <div class="catCard" :style="{backgroundColor: bgcolor}">
+    <div @click="navToCat" class="catCard" :style="{backgroundColor: bgcolor}">
         <img :src="image" alt="" class="img">
         <div class="textContainer">
             <h1 class="title">{{ title }}</h1>
@@ -17,8 +17,17 @@ export default{
         "title",
         "image",
         "numItem",
-        "bgcolor"
-    ]
+        "bgcolor",
+        
+    ],
+    methods: {
+        navToCat(){
+            // if(this.categoryId){
+            //     this.$router.push(`/categories/${this.categoryId}`);
+            // }
+            this.$router.push(`/categories/coke`);
+        }
+    }
 }
 </script>
 <style scoped>

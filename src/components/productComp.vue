@@ -1,5 +1,5 @@
 <template>
-    <div class="productContainer">
+    <div @click="navToProduct" class="productContainer">
         <div class="discount">
             -{{ discountPercentage }}%
         </div>
@@ -35,8 +35,15 @@ export default{
         "size",
         "rating",
         "discountPercentage",
-    ]
+    ],
+    methods: {
+        navToProduct(){
+            this.$router.push('/products/mango');
+        }
+    }
 }
+
+
 </script>
 <style>
 .productContainer{

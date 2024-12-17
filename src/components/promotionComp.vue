@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=NestMart:wght@400&display=swap"></link>
 
 <template>
-    <div class="promoCard" :style="{backgroundColor: bgcolor}">
+    <div @click="navToProduct" class="promoCard" :style="{backgroundColor: bgcolor}">
         <img :src="image" alt="" class="img">
         <div class="textContainer">
             <h1 class="title">{{ title }}</h1>
@@ -29,6 +29,9 @@ export default{
     methods:{
         shopNow(promotion) {
              alert("Let's shop: "+promotion);
+        },
+        navToProduct(){
+            this.$router.push('/products/mango');
         }
     }
 };
