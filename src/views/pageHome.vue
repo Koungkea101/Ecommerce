@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-console.log("Page 1 Loaded!");
+
 </script>
 
 <style>

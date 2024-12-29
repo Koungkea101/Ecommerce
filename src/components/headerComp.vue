@@ -3,9 +3,9 @@
         <h1 style="color: black; font-size: 30px;">header</h1>
         <div style="display: flex; color: black; font-size: 25px; gap: 30px;">
 
-            <router-link to="/page1" class="pageLink" active-class="activePage">Page 1</router-link>
-            <router-link to="/page2" class="pageLink" active-class="activePage">Page 2</router-link>
-            <router-link to="/page3" class="pageLink" active-class="activePage">Page 3</router-link>
+            <router-link to="/page/1" class="pageLink" active-class="activePage">Page 1</router-link>
+            <router-link to="/page/2" class="pageLink" active-class="activePage">Page 2</router-link>
+            <router-link to="/page/3" class="pageLink" active-class="activePage">Page 3</router-link>
         </div>
     </div>
 </template>
