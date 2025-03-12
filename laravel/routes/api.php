@@ -28,4 +28,6 @@ Route::controller(ProductController::class)->prefix('products')->group(function 
 // Route::resource('categories', CategoryController::class)->withoutMiddleware([\App\Http\Middleware\Authenticate::class]);
 // Route::resource('products', ProductController::class)->withoutMiddleware([\App\Http\Middleware\Authenticate::class]);
 Route::get('/products', [ProductController::class, 'getProducts']);
+Route::post('/products', [ProductController::class, 'createProduct']);
 Route::get('/categories', [CategoryController::class, 'getCategories']);
+Route::post('/categories', [CategoryController::class, 'createCategory']);

@@ -11,17 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->decimal('pricing', 10, 2);
-            $table->text('description');
-            $table->json('images');
-            $table->timestamps();
+        if (!Schema::hasTable('products')) { // Check if table exists
+            Schema::create('products', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->decimal('pricing', 10, 2);
+                $table->text('description');
+                // $table->json('images');
+                $table->string('images');
+                $table->timestamps();
 
-            $table->foreignId('category_id')->constrained('categories');
-        });
+                $table->foreignId('category_id')->constrained('categories');
+            });
+        }
     }
+
 
     /**
      * Reverse the migrations.

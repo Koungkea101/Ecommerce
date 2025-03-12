@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Product;
 class ProductController extends Controller
 {
     //Get /api/products
     public function getProducts() {
-        return ["message"=>"Get list of products"];
+        $products = Product::all();
+        // return ["message"=>"Get list of products"];
+        return response()->json(['products' => $products]);
     }
 
     //Post /api/products
