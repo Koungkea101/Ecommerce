@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('pricing', 10, 2);
             $table->text('description');
-            $table->json('images');
+            $table->json('images')->nullable();
             $table->timestamps();
 
             $table->foreignId('category_id')->constrained('categories');
