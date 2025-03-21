@@ -12,7 +12,10 @@ class CategoryController extends Controller
         $categories = Category::all();
 
         // Return as JSON response
-        return response()->json($categories);
+        return response()->json([
+            "message" => "success",
+            "categories" => $categories
+        ]);
     }
 
     // Post /api/categories
@@ -43,7 +46,7 @@ class CategoryController extends Controller
         $category->update($request->all());
         return response()->json(["message"=>"Category updated successfully", "category"=>$category]);
 
-
+    }
     // delete /api/categories/{categoryId}
     public function deleteCategory($categoryId) {
         return ["message"=>"Delete category with given categoryId: $categoryId"];
