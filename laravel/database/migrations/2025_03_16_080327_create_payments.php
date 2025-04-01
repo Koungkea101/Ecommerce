@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('payment_method');
             $table->decimal('amount',10,2);
 
+            $table->foreignId('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->foreignId('customer_id')->references('id')->on('customers')->onDelete('cascade');
 
-            $table->foreignId('order_id')->constrained('orders');
-            $table->foreignId('customer_id')->constrained('customers');
             $table->timestamps();
         });
     }

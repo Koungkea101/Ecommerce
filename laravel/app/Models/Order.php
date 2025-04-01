@@ -10,7 +10,7 @@ use Carbon\Carbon;
 
 class Order extends Model
 {
-    use hasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $table='orders';
     protected $dates=['deleted_at'];

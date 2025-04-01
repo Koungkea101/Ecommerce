@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('order_date')->useCurrent();
+            $table->timestamp('order_date');
             $table->decimal('total_price',10,2);
-            $table->foreignId('customer_id')->constrained('customers');
+            $table->unsignedBigInteger('customer_id');
+
             $table->timestamps();
-            
+
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });
     }
 
