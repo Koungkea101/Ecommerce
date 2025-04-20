@@ -24,3 +24,12 @@ Route::controller(ProductController::class)->prefix('products')->group(function 
     Route::put('/{productId}', 'updateProduct');
     Route::delete('/{productId}', 'deleteProduct');
 });
+
+Route::controller(CartController::class)->prefix('carts')->group(function () {
+    Route::get('/', 'getCarts');
+    Route::post('/', 'createCart');
+    Route::get('/{cartId}', 'getCart');
+    Route::put('/{cartId}', 'updateCart');
+    Route::delete('/{cartId}', 'deleteCart');
+});
+

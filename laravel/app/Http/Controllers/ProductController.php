@@ -23,11 +23,7 @@ class ProductController extends Controller
 
     // Get /api/products/{productId}
     public function getProduct($productId) {
-        $product = Product::find($productId);
-
-        if (!$product) {
-            return response()->json(["error" => "Product not found"], 404);
-        }
+        $product = Product::findOrFail($productId);
 
         return response()->json($product);
     }

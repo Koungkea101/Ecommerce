@@ -34,7 +34,7 @@ class CategoryController extends Controller
     // get /api/categories/{categoryId}
     public function getCategory($categoryId) {
         // return ["message"=>"Get category with given categoryId: $categoryId"];
-        $category = Category::find($categoryId);
+        $category = Category::findOrFail($categoryId); //throw 404 if not found
         return response()->json($category);
     }
 
@@ -51,6 +51,8 @@ class CategoryController extends Controller
     public function deleteCategory($categoryId) {
         return ["message"=>"Delete category with given categoryId: $categoryId"];
     }
+
+    
 
 
 }
