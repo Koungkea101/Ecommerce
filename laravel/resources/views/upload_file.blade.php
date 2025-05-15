@@ -111,8 +111,8 @@
                 <form action="{{ route('upload.local') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-4">
-                        <label for="document" class="form-label">Select File</label>
-                        <input type="file" class="form-control" id="document" name="document" required />
+                        <label for="image" class="form-label">Select Image</label>
+                        <input type="file" class="form-control" id="image" name="image" required />
                     </div>
                     <button type="submit" class="btn upload-btn local-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-up-fill me-2" viewBox="0 0 16 16">

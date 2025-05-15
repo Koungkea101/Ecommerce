@@ -12,10 +12,10 @@ class UploadController extends Controller
     public function uploadToLocal(Request $request)
     {
         $request->validate([
-            'document' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'image' => 'required|image|max:2048',
         ]);
 
-        $path = $request->file('document')->store('uploads', 'public');
+        $path = $request->file('image')->store('uploads', 'public');
 
         return response()->json(['path' => $path], 200);
     }
@@ -47,7 +47,6 @@ class UploadController extends Controller
             'path' => $path,
         ], 200);
     }
-
 
     public function getFromMinio($filename)
     {
