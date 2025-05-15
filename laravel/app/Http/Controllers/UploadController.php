@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\Laravel\Facades\Image;
 
 class UploadController extends Controller
 {
@@ -40,19 +40,17 @@ class UploadController extends Controller
         $image = $request->file('image');
         $fileName = uniqid() . '.' . $image->getClientOriginalExtension();
 
-        // Store the original image in the 'uploads' directory on the MinIO disk
+        // Store the original image in the 'uploads' directory on Minio
         $originalPath = $image->storeAs('uploads', $fileName, 'minio');
 
         // Create and store thumbnail
         $thumbnailPath = 'thumbnails/' . $fileName;
-        $intervention = Image::make($image->getRealPath());
-        $intervention->fit(200, 200, function ($constraint) {
-            $constraint->aspectRatio();
-        });
+        $intervention = Image::read($image->getRealPath());
+        $intervention->resize(width: 200, height: 200);
 
         // Convert the intervention image to a stream and store it in MinIO
-        $thumbnailStream = $intervention->stream();
-        Storage::disk('minio')->put($thumbnailPath, $thumbnailStream->__toString());
+        $thumbnailData = $intervention->toJpeg()->toString();
+        Storage::disk('minio')->put($thumbnailPath, $thumbnailData);
 
         return response()->json([
             'original_path' => $originalPath,
