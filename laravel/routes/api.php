@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\UploadController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -31,5 +33,12 @@ Route::controller(CartController::class)->prefix('carts')->group(function () {
     Route::get('/{cartId}', 'getCart');
     Route::put('/{cartId}', 'updateCart');
     Route::delete('/{cartId}', 'deleteCart');
+});
+
+Route::controller(UploadController::class)->group(function () {
+    // MinIO routes
+    Route::post('/upload', 'uploadToMinio');
+    Route::get('/images/{filename}', 'getFromMinio');
+    Route::get('/images/thumbnail/{filename}', 'getFromMinio')->defaults('type', 'thumbnail');
 });
 

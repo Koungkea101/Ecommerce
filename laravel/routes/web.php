@@ -7,7 +7,7 @@ Route::view('/', 'welcome');
 Route::view('/upload_file', 'upload_file');
 
 Route::post('/upload/local', [UploadController::class, 'uploadToLocal'])->name('upload.local');
-Route::get('/file/local/{filename}', [UploadController::class, 'getFromLocal'])->name('file.local');
+Route::get('/get/local/{filename}', [UploadController::class, 'getFromLocal'])->name('file.local');
 
 Route::post('/upload/minio', [UploadController::class, 'uploadToMinio'])->name('upload.minio');
-Route::get('/file/minio/{filename}', [UploadController::class, 'getFromMinio'])->name('file.minio');
+Route::get('/get/minio/{filename}', [UploadController::class, 'getFromMinio'])->name('file.minio');
